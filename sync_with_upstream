@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CURRENT_BRANCH=`git branch | grep \* | cut -d ' ' -f2`
+echo "Current branch: ${CURRENT_BRANCH}"
+git fetch upstream
+git merge upstream/${CURRENT_BRANCH}
+
+echo "Done syncing ${CURRENT_BRANCH} with upstream"
+echo "Push changes to origin"
+
